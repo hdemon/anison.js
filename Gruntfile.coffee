@@ -1,8 +1,10 @@
 "use strict"
 module.exports = (grunt) ->
+  require('load-grunt-tasks')(grunt)
+
   grunt.initConfig
     coffee:
-      src:
+      source:
         expand: true,
         cwd: 'lib/',
         src: ['**/*.coffee'],
@@ -26,11 +28,6 @@ module.exports = (grunt) ->
           ui: 'bdd'
           compilers: 'coffee:coffee-script'
 
-
-  # These plugins provide necessary tasks.
-  grunt.loadNpmTasks "grunt-contrib-coffee"
-  grunt.loadNpmTasks "grunt-contrib-watch"
-  grunt.loadNpmTasks "grunt-simple-mocha"
-
   grunt.registerTask "default", ["watch"]
+  grunt.registerTask "build", ["coffee:source"]
   grunt.registerTask "test", ["simplemocha"]
