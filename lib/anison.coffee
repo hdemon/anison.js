@@ -18,9 +18,9 @@ class Anison
       @_getSearchHtml(@title).then (searchHtmlBody) => resolve @_parseAnimeId searchHtmlBody
 
   _getSearchHtml: ->
-    new Promise (resolve, reject) ->
+    new Promise (resolve, reject) =>
       request
-        url: "http://anison.info/data/n.php?q=%E3%81%8D%E3%82%93%E3%81%84%E3%82%8D%E3%83%A2%E3%82%B6%E3%82%A4%E3%82%AF&m=pro",
+        url: "http://anison.info/data/n.php?q=#{encodeURIComponent @title}&m=pro",
         headers:
           'User-Agent': 'request'
         (err, res, body) ->
