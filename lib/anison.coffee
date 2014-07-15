@@ -13,7 +13,7 @@ cheerio = require 'cheerio'
 class Anison
   constructor: (@title) ->
 
-  getAnimeId: ->
+  _getAnimeId: ->
     new Promise (resolve, reject) =>
       @_getSearchHtml(@title).then (searchHtmlBody) => resolve @_parseAnimeId searchHtmlBody
 
