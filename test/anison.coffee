@@ -23,15 +23,15 @@ describe "_getAnimeId", ->
 
 describe "_getSearchHtml", ->
   beforeEach (done) ->
+    @fixture = fs.readFileSync('test/fixture/search_result.html').toString()
+    nock('http://anison.info')
+      .get("/data/n.php?q=#{encodeURIComponent '未確認で進行形'}&m=pro")
+      .reply(200, @fixture)
+
     anison = new Anison("未確認で進行形")
     anison._getSearchHtml().then (res) =>
       @result = res
       done()
 
   it "should return html scraped by anison.info", ->
-    fixture = fs.readFileSync('test/fixture/search_result.html').toString()
-    nock('http://anison.info/')
-      .get("/data/n.php?q=#{encodeURIComponent '未確認で進行形'}&m=pro")
-      .reply(200, fixture)
-
-    expect(@result).to.equal fixture
+    expect(@result).to.equal @fixture
