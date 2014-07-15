@@ -7,7 +7,7 @@
 request = require 'request'
 Promise = require 'bluebird'
 $ = require 'cheerio'
-Song = require './song.coffee'
+Song = require './song'
 
 Anison = {}
 Anison._getSearchHtml = (title) ->

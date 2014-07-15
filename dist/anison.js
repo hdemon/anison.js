@@ -7,7 +7,7 @@
 
   $ = require('cheerio');
 
-  Song = require('./song.coffee');
+  Song = require('./song');
 
   Anison = {};
 
