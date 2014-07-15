@@ -20,7 +20,7 @@
       "url": "https://github.com/hdemon/anison.js/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "lib/anison",
+  "main": "dist/anison",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -36,7 +36,6 @@
     "sinon": "*",
     "chai": "*",
     "sinon-chai": "*",
-    "scaffolt": "*",
     "grunt": "~0.4.5"
   },
   "keywords": [],

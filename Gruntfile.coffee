@@ -1,6 +1,14 @@
 "use strict"
 module.exports = (grunt) ->
   grunt.initConfig
+    coffee:
+      src:
+        expand: true,
+        cwd: 'lib/',
+        src: ['**/*.coffee'],
+        dest: 'dist/',
+        ext: '.js'
+
     watch:
       test:
         files: [

@@ -10,9 +10,12 @@ _(Coming soon)_
 
 ## Examples
 ```javascript
-var Anison = require('anison');
-anison = new Anison("未確認で進行形")
-console.log(anison[0].title);
+var anison = require('anison');
+anison.get("未確認で進行形").then(function(songs) {
+  console.log(songs[0].title);
+  console.log(songs[0].artists);
+  console.log(songs[0].composer);
+})
 ```
 
 ## Contributing
