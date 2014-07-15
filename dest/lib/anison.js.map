@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "anison.js",
+  "sourceRoot": "../../lib/",
+  "sources": [
+    "anison.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,CAAQ,EAAU,IAAX,EAAW;CAAA,QAChB;CADgB"
+}
