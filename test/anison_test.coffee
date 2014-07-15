@@ -10,17 +10,27 @@ fs = require 'fs'
 nock = require 'nock'
 Anison = require '../lib/anison.coffee'
 
-describe "getSongs", ->
+describe "getAnimeId", ->
   beforeEach (done) ->
     anison = new Anison("きんいろモザイク")
-    anison.getSongs().then (res) =>
+    anison.getAnimeId().then (id) =>
+      @return = id
+      done()
+
+  it "should return html scraped by anison.info", ->
+    expect(@return).to.equal 16172
+
+describe "_getSearchHtml", ->
+  beforeEach (done) ->
+    anison = new Anison("きんいろモザイク")
+    anison._getSearchHtml().then (res) =>
       @result = res
       done()
 
-  it "should be done successfull", ->
+  it "should return html scraped by anison.info", ->
     fixture = fs.readFileSync('test/fixture/search_result.html')
     nock('http://anison.info/')
       .get('/data/n.php?q=%E3%81%8D%E3%82%93%E3%81%84%E3%82%8D%E3%83%A2%E3%82%B6%E3%82%A4%E3%82%AF&m=pro')
       .reply(200, fixture)
 
-    expect(@result).to.eq fixture.toString()
+    expect(@result).to.equal fixture.toString()
