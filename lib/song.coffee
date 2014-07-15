@@ -31,4 +31,4 @@ class Song
     $aTags.each -> array.push $(@).text()
     array
 
-module.exports = Songs
+module.exports = Song

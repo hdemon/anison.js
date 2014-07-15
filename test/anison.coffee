@@ -10,28 +10,30 @@ fs = require 'fs'
 nock = require 'nock'
 Anison = require '../lib/anison.coffee'
 
+describe "get", ->
+  beforeEach (done) ->
+    Anison.get("未確認で進行形").then (@returned) => done()
+
+  it "should return html scraped by anison.info", ->
+    expect(@returned[0].category).to.equal "OP"
+    expect(@returned[0].title).to.equal "とまどい→レシピ"
+    expect(@returned[0].artists).to.equal "みかくにんぐッ!"
+
 
 describe "_getAnimeId", ->
   beforeEach (done) ->
-    anison = new Anison("未確認で進行形")
-    anison._getAnimeId().then (id) =>
-      @return = id
-      done()
+    Anison._getAnimeId("未確認で進行形").then (@returned) => done()
 
   it "should return html scraped by anison.info", ->
-    expect(@return).to.equal 16676
+    expect(@returned).to.equal 16676
 
 describe "_getSearchHtml", ->
   beforeEach (done) ->
-    @fixture = fs.readFileSync('test/fixture/search_result.html').toString()
-    nock('http://anison.info')
+    @mock = nock('http://anison.info')
       .get("/data/n.php?q=#{encodeURIComponent '未確認で進行形'}&m=pro")
       .reply(200, @fixture)
 
-    anison = new Anison("未確認で進行形")
-    anison._getSearchHtml().then (res) =>
-      @result = res
-      done()
+    Anison._getSearchHtml("未確認で進行形").then (@returned) => done()
 
   it "should return html scraped by anison.info", ->
-    expect(@result).to.equal @fixture
+    @mock.done()

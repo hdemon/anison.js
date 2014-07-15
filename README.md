@@ -1,20 +1,19 @@
 # anison [![Build Status](https://secure.travis-ci.org/hdemon/anison.js.png?branch=master)](http://travis-ci.org/hdemon/anison.js)
 
-The best project ever.
+The Scraper of anison.info
 
 ## Getting Started
 Install the module with: `npm install anison`
-
-```javascript
-var anison = require('anison');
-anison.awesome(); // "awesome"
-```
 
 ## Documentation
 _(Coming soon)_
 
 ## Examples
-_(Coming soon)_
+```javascript
+var Anison = require('anison');
+anison = new Anison("未確認で進行形")
+console.log(anison[0].title);
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
