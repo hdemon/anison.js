@@ -28,6 +28,7 @@
     "test": "grunt test"
   },
   "devDependencies": {
+    "load-grunt-tasks": "*",
     "grunt-contrib-coffee": "~0.7",
     "grunt-contrib-watch": "~0.2.0",
     "grunt-simple-mocha": "~0.4",
@@ -38,5 +39,10 @@
     "scaffolt": "*",
     "grunt": "~0.4.5"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "bluebird": "^2.2.2",
+    "nock": "^0.42.1",
+    "request": "^2.37.0"
+  }
 }

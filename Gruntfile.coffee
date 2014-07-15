@@ -4,7 +4,7 @@ module.exports = (grunt) ->
     watch:
       test:
         files: [
-          "<%= coffee.lib.src %>"
+          "lib/**/*.coffee"
           "<%= simplemocha.all.src %>"
         ]
         tasks: ["test"]
